@@ -13,7 +13,7 @@ import java.time.Duration;
 import java.util.List;
 import java.util.Map;
 
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = "https://lirr-fpxbkwk31-duaarondus-projects.vercel.app")
 @RestController
 public class TrainController {
     @GetMapping("/shapes")
