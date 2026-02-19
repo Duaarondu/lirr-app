@@ -22,7 +22,7 @@ const getColor = (train) => routeColors[train.route] || 'gray';
 
 function App() {
   const [trains, setTrains] = useState([]);
-  const [shapes, setShapes] = useState({});
+  const [shapes, setShapes] = useState({}); //note
 
   useEffect(() => {
     const fetchTrains = async () => {
