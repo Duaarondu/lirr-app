@@ -11,7 +11,7 @@ description = 'Demo project for Spring Boot'
 java {
 	toolchain {
 		sourceCompatability = JavaVersion.VERSION_17
-		targetCompatabillity = JavaVersion.VERSION_17
+		targetCompatability = JavaVersion.VERSION_17
 	}
 }
 
