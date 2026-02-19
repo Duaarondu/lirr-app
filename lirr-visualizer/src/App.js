@@ -25,17 +25,27 @@ function App() {
   const [shapes, setShapes] = useState({});
 
   useEffect(() => {
-    const fetchTrains = () => {
-      fetch('http://localhost:8080/trains')
-        .then(res => res.json())
-        .then(data => setTrains(data))
-        .catch(err => console.error('error:', err));
+    const fetchTrains = async () => {
+      try {
+        const res = await fetch("https://lirr-app-production.up.railway.app/trains");
+        if (!res.ok) throw new Error(`trains HTTP ${res.status}`);
+        const data = await res.json();
+        setTrains(data);
+      } catch (err) {
+        console.error("trains error:", err);
+      }
     };
 
-    fetch('http://localhost:8080/shapes')
-      .then(res => res.json())
-      .then(data => setShapes(data))
-      .catch(err => console.error('shapes error:', err));
+    const fetchShapes = async () => {
+      try {
+        const res = await fetch("https://lirr-app-production.up.railway.app/shapes");
+        if (!res.ok) throw new Error(`shapes HTTP ${res.status}`);
+        const data = await res.json();
+        setShapes(data);
+      } catch (err) {
+        console.error("shapes error:", err);
+      }
+    };
 
     fetchTrains();
     const interval = setInterval(fetchTrains, 10000);
