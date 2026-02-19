@@ -9,7 +9,8 @@ public class SecurityConfig {
   @Bean
   SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
     http
-      .csrf(csrf -> csrf.disable())
+            .cors(withDefaults())
+            .csrf(csrf -> csrf.disable())
       .authorizeHttpRequests(auth -> auth
         .requestMatchers("/trains", "/shapes").permitAll()
         .anyRequest().permitAll()   // or .authenticated() if you want other routes protected
